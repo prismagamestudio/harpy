@@ -1,0 +1,163 @@
+[gd_scene format=3 uid="uid://byhgdhijff8yo"]
+
+[ext_resource type="PackedScene" uid="uid://ckudr8chj1kgo" path="res://scenes/player/player.tscn" id="1_3tacb"]
+[ext_resource type="Texture2D" uid="uid://bvujexifpq58x" path="res://addons/godot-prototype-texture/PNG/logo_512x512/logo_black_512x512.png" id="1_gt1ig"]
+[ext_resource type="Texture2D" uid="uid://b7dgm2lrls101" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_pink_512x512.png" id="3_8124a"]
+[ext_resource type="Texture2D" uid="uid://drnc0xem7reqa" path="res://addons/godot-prototype-texture/PNG/logo_512x512/logo_cyan_512x512.png" id="4_p77yg"]
+[ext_resource type="Texture2D" uid="uid://csn4hiaob6pjs" path="res://addons/godot-prototype-texture/PNG/grid_512x512/grid_yellow_512x512.png" id="5_ccvsq"]
+[ext_resource type="Script" uid="uid://co1xwpick0n7g" path="res://scenes/levels/maniqui_practica.gd" id="6_p77yg"]
+[ext_resource type="PackedScene" uid="uid://dvpk1shsj8uqu" path="res://animations/UAL1/UAL1_Standard.glb" id="7_ccvsq"]
+[ext_resource type="Texture2D" uid="uid://daxxhkr33f3co" path="res://addons/godot-prototype-texture/PNG/logo_512x512/logo_lime_512x512.png" id="8_ccvsq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_3h0lk"]
+albedo_texture = ExtResource("1_gt1ig")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_uq0sl"]
+size = Vector2(100, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uc6nc"]
+size = Vector3(100, 1, 100)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uq0sl"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_0271w"]
+albedo_texture = ExtResource("3_8124a")
+
+[sub_resource type="BoxMesh" id="BoxMesh_uc6nc"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ws1r0"]
+albedo_texture = ExtResource("4_p77yg")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_o4ynd"]
+albedo_texture = ExtResource("5_ccvsq")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_uq0sl"]
+radius = 0.35
+height = 1.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wgcdj"]
+albedo_texture = ExtResource("8_ccvsq")
+
+[sub_resource type="BoxMesh" id="BoxMesh_opo2b"]
+size = Vector3(10, 20, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_tksel"]
+size = Vector3(10, 20, 10)
+
+[node name="TestArena" type="Node3D" unique_id=1622183055]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="." unique_id=1261563406]
+transform = Transform3D(1, 0, 0, 0, 0.70710677, 0.70710677, 0, -0.70710677, 0.70710677, 0, 0, 0)
+
+[node name="Floor" type="StaticBody3D" parent="." unique_id=1602400334]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Floor" unique_id=146658921]
+material_override = SubResource("StandardMaterial3D_3h0lk")
+mesh = SubResource("PlaneMesh_uq0sl")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor" unique_id=763284908]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
+shape = SubResource("BoxShape3D_uc6nc")
+
+[node name="Player" parent="." unique_id=120768601 instance=ExtResource("1_3tacb")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="." unique_id=1260732638 groups=["agarrables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6537514, 0.6, -6.9409404)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D" unique_id=164985347]
+shape = SubResource("BoxShape3D_uq0sl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D" unique_id=665507886]
+material_override = SubResource("StandardMaterial3D_0271w")
+mesh = SubResource("BoxMesh_uc6nc")
+
+[node name="RigidBody3D2" type="RigidBody3D" parent="." unique_id=1438628998 groups=["agarrables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -16.144455, 0.6, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D2" unique_id=1214554205]
+shape = SubResource("BoxShape3D_uq0sl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D2" unique_id=1566446316]
+material_override = SubResource("StandardMaterial3D_ws1r0")
+mesh = SubResource("BoxMesh_uc6nc")
+
+[node name="RigidBody3D3" type="RigidBody3D" parent="." unique_id=937206419 groups=["agarrables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6, 9.943637)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D3" unique_id=901111205]
+shape = SubResource("BoxShape3D_uq0sl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D3" unique_id=1850233865]
+material_override = SubResource("StandardMaterial3D_o4ynd")
+mesh = SubResource("BoxMesh_uc6nc")
+
+[node name="Maniqui" type="RigidBody3D" parent="." unique_id=510978751 groups=["agarrables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.1730046, 0, 0)
+script = ExtResource("6_p77yg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maniqui" unique_id=811544300]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_uq0sl")
+
+[node name="UAL1_Standard" parent="Maniqui" unique_id=560358891 instance=ExtResource("7_ccvsq")]
+
+[node name="Maniqui2" type="RigidBody3D" parent="." unique_id=1021476187 groups=["agarrables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -17.484266)
+script = ExtResource("6_p77yg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maniqui2" unique_id=1146583235]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_uq0sl")
+
+[node name="UAL1_Standard" parent="Maniqui2" unique_id=1624157610 instance=ExtResource("7_ccvsq")]
+
+[node name="Maniqui3" type="RigidBody3D" parent="." unique_id=123560159 groups=["agarrables"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.707261, 0, 0)
+script = ExtResource("6_p77yg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Maniqui3" unique_id=555342312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 0)
+shape = SubResource("CapsuleShape3D_uq0sl")
+
+[node name="UAL1_Standard" parent="Maniqui3" unique_id=920557098 instance=ExtResource("7_ccvsq")]
+
+[node name="Building" type="StaticBody3D" parent="." unique_id=1461595370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -29.447227, 10, 32.519337)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building" unique_id=799183527]
+material_override = SubResource("StandardMaterial3D_wgcdj")
+mesh = SubResource("BoxMesh_opo2b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building" unique_id=743230483]
+shape = SubResource("BoxShape3D_tksel")
+
+[node name="Building2" type="StaticBody3D" parent="." unique_id=661220512]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.486317, 10, 32.519337)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building2" unique_id=968071950]
+material_override = SubResource("StandardMaterial3D_wgcdj")
+mesh = SubResource("BoxMesh_opo2b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building2" unique_id=1914267232]
+shape = SubResource("BoxShape3D_tksel")
+
+[node name="Building3" type="StaticBody3D" parent="." unique_id=629111111]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 32.431786, 10, -24.694912)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building3" unique_id=695486800]
+material_override = SubResource("StandardMaterial3D_wgcdj")
+mesh = SubResource("BoxMesh_opo2b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building3" unique_id=45457752]
+shape = SubResource("BoxShape3D_tksel")
+
+[node name="Building4" type="StaticBody3D" parent="." unique_id=964428257]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -28.454185, 10, -30.377575)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Building4" unique_id=92988280]
+material_override = SubResource("StandardMaterial3D_wgcdj")
+mesh = SubResource("BoxMesh_opo2b")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Building4" unique_id=1475170959]
+shape = SubResource("BoxShape3D_tksel")

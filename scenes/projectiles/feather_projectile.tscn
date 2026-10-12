@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://l6tmjtdn2gg"]
+
+[ext_resource type="Script" uid="uid://cj3ivv3sg5jqd" path="res://feather_projectile.gd" id="1_bcpeu"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_uq0sl"]
+radius = 0.08
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_5gtgg"]
+albedo_color = Color(0.015686275, 1, 1, 1)
+emission_enabled = true
+emission = Color(0, 0.88645095, 0.8864508, 1)
+emission_energy_multiplier = 2.74
+
+[sub_resource type="BoxMesh" id="BoxMesh_uq0sl"]
+material = SubResource("StandardMaterial3D_5gtgg")
+size = Vector3(0.05, 0.04, 0.35)
+
+[node name="FeatherProjectile" type="CharacterBody3D" unique_id=10498601]
+script = ExtResource("1_bcpeu")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=947061858]
+shape = SubResource("SphereShape3D_uq0sl")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=2143681139]
+mesh = SubResource("BoxMesh_uq0sl")

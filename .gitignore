@@ -1,0 +1,10 @@
+# Godot 4: caché de importación (se regenera sola, pesa megas)
+.godot/
+
+# Exportaciones y secretos
+export.cfg
+export_presets.cfg
+
+# Sistema operativo
+*~
+.DS_Store
